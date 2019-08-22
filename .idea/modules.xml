@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/KotlinMultiplatformMVI.iml" filepath="$PROJECT_DIR$/.idea/KotlinMultiplatformMVI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer_androidMain.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer_androidMain.iml" group="dataLayer" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer_androidTest.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer_androidTest.iml" group="dataLayer" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer_commonMain.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer_commonMain.iml" group="dataLayer" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer_commonTest.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer_commonTest.iml" group="dataLayer" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer_iosMain.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer_iosMain.iml" group="dataLayer" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer_iosTest.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer_iosTest.iml" group="dataLayer" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer_jsMain.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer_jsMain.iml" group="dataLayer" />
+      <module fileurl="file://$PROJECT_DIR$/dataLayer/dataLayer_jsTest.iml" filepath="$PROJECT_DIR$/dataLayer/dataLayer_jsTest.iml" group="dataLayer" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf.iml" filepath="$PROJECT_DIR$/udf/udf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf_androidMain.iml" filepath="$PROJECT_DIR$/udf/udf_androidMain.iml" group="udf" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf_androidTest.iml" filepath="$PROJECT_DIR$/udf/udf_androidTest.iml" group="udf" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf_commonMain.iml" filepath="$PROJECT_DIR$/udf/udf_commonMain.iml" group="udf" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf_commonTest.iml" filepath="$PROJECT_DIR$/udf/udf_commonTest.iml" group="udf" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf_iosMain.iml" filepath="$PROJECT_DIR$/udf/udf_iosMain.iml" group="udf" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf_iosTest.iml" filepath="$PROJECT_DIR$/udf/udf_iosTest.iml" group="udf" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf_jsMain.iml" filepath="$PROJECT_DIR$/udf/udf_jsMain.iml" group="udf" />
+      <module fileurl="file://$PROJECT_DIR$/udf/udf_jsTest.iml" filepath="$PROJECT_DIR$/udf/udf_jsTest.iml" group="udf" />
+    </modules>
+  </component>
+</project>

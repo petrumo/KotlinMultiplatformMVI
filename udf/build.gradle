@@ -1,0 +1,80 @@
+apply plugin: 'kotlin-multiplatform'
+apply plugin: 'kotlinx-serialization'
+
+group 'com.emv.udf'
+version '0.0.1'
+apply plugin: 'maven-publish'
+
+kotlin {
+    targets {
+        final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") \
+                              ? presets.iosArm64 : presets.iosX64
+
+        fromPreset(iOSTarget, 'ios') {
+            binaries {
+                framework('SharedCode')
+            }
+        }
+
+        fromPreset(presets.jvm, 'android')
+
+        js()
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+
+
+            implementation project(':dataLayer')
+            //It is expected interfaces
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$kotlin_coroutines"
+            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$kotlin_serialization"
+        }
+
+        commonTest.dependencies {
+            implementation kotlin('test-common')
+            implementation kotlin('test-annotations-common')
+        }
+
+        androidMain.dependencies {
+            implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlin_serialization"
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines"
+        }
+
+        androidTest.dependencies {
+            implementation kotlin('test')
+            implementation kotlin('test-junit')
+        }
+
+        iosMain.dependencies {
+            implementation "org.jetbrains.kotlin:kotlin-stdlib-native:$kotlin_version"
+
+            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$kotlin_serialization"
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$kotlin_coroutines"
+        }
+
+        iosTest.dependencies {
+            implementation kotlin('test')
+            implementation kotlin('test-junit')
+        }
+
+        jsMain.dependencies {
+            implementation "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+
+            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$kotlin_serialization"
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$kotlin_coroutines"
+        }
+
+        jsTest.dependencies {
+            implementation kotlin('test-js')
+            implementation kotlin('test-junit')
+        }
+    }
+}
+
+configurations {
+    compileClasspath
+}

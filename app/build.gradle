@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.emv.kotlinmultiplatformmvi"
+        minSdkVersion 18
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary true
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlin_serialization"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+
+    implementation "androidx.recyclerview:recyclerview:$recycler_view"
+    implementation "androidx.recyclerview:recyclerview-selection:$recycler_view"
+
+    kapt 'com.android.databinding:compiler:2.3.1'
+
+
+    implementation "androidx.appcompat:appcompat:$app_compat"
+    implementation 'androidx.core:core-ktx:1.0.2'
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.1'
+
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // Koin for Android
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    // Koin Android ViewModel features
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+
+    implementation 'com.appmattus:layercache:0.4.0'
+    implementation 'com.appmattus:layercache-android:0.4.0'
+    implementation 'com.appmattus:layercache-serializer:0.4.0'
+
+
+    implementation project(':udf')
+    implementation project(':dataLayer')
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

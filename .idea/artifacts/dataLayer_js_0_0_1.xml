@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="dataLayer-js-0.0.1">
+    <output-path>D:\workspace_rn\KotlinMultiplatformMVI\dataLayer\build\libs</output-path>
+    <root id="archive" name="dataLayer-js-0.0.1.jar">
+      <element id="module-output" name="dataLayer_jsMain" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="shared-js-0.0.1">
+    <output-path>D:\workspace\KotlinMultiplatformMVI\shared\build\libs</output-path>
+    <root id="archive" name="shared-js-0.0.1.jar">
+      <element id="module-output" name="shared_jsMain" />
+    </root>
+  </artifact>
+</component>

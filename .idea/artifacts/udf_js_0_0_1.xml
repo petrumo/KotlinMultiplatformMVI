@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="udf-js-0.0.1">
+    <output-path>D:\workspace_rn\KotlinMultiplatformMVI\udf\build\libs</output-path>
+    <root id="archive" name="udf-js-0.0.1.jar">
+      <element id="module-output" name="udf_jsMain" />
+    </root>
+  </artifact>
+</component>
