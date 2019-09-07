@@ -11,8 +11,6 @@ import androidx.lifecycle.map
 //import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.observe
 import androidx.lifecycle.distinctUntilChanged
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -38,17 +36,17 @@ class MainActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                viewModel.dispatch(Action.OnHome)
+                viewModel.dispatch(Action.Home)
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.navigation_mesh -> {
-                viewModel.dispatch(Action.OnMesh)
+                viewModel.dispatch(Action.Mesh)
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.navigation_map -> {
-                viewModel.dispatch(Action.OnMap)
+                viewModel.dispatch(Action.Map)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -65,14 +63,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.recyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-            adapter = ChannelsListAdapter(Glide.with(this@MainActivity))
+            adapter = ItemsListAdapter(Glide.with(this@MainActivity))
             setHasFixedSize(true)
         }
-        viewModel.registerRefresh(PROGRESS) {
-            runOnUiThread {(binding.recyclerView.adapter as ChannelsListAdapter).updateProgress()}
-        }
 
-        viewModel.dispatch(Action.OnInit)
+        viewModel.dispatch(Action.Init)
         viewModel.appState.map { appViewState -> appViewState.navigationViewState }.distinctUntilChanged().observe(this){render(it)}
         viewModel.appState.map { appViewState -> appViewState.responseViewState }.distinctUntilChanged().observe(this){render(it)}
 
@@ -91,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             binding.spinner.visibility = View.GONE
             val model: BaseModel? = state.model
             if (model is Feed)
-                (binding.recyclerView.adapter as ChannelsListAdapter).updateItems(model?.items)
+                (binding.recyclerView.adapter as ItemsListAdapter).updateItems(model?.items)
         }
     }
 }

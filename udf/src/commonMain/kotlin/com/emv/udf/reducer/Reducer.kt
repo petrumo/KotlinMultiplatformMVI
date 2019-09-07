@@ -6,25 +6,25 @@ import com.emv.udf.viewstate.AppViewState
 import com.emv.udf.viewstate.NavigationStates
 import com.emv.datalayer.models.BaseModel
 
-class Reducer() {
+class Reducer {
 
     companion object {
 
         fun reduce(appViewState: AppViewState, action: Action): AppViewState {
             when (action) {
-                is Action.OnHome -> {
+                is Action.Home -> {
                     return navigationResult(appViewState, NavigationStates.home)
                 }
-                is Action.OnMesh -> {
+                is Action.Mesh -> {
                     return navigationResult(appViewState, NavigationStates.guide)
                 }
-                is Action.OnMap -> {
+                is Action.Map -> {
                     return navigationResult(appViewState, NavigationStates.library)
                 }
                 is Action.OnData<*> -> {
                     return dataResult(appViewState, action.dataResult)
                 }
-                is Action.OnInit -> {
+                is Action.Init -> {
                     return appViewState
                 }
             }

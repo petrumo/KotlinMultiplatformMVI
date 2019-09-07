@@ -12,7 +12,7 @@ class MiddlewareDispatcher constructor(cacheFactory: CacheFactory, private val e
 
     fun dispatch(appViewState: AppViewState, action: Action) {
         when (action) {
-            is Action.OnInit, Action.OnHome, Action.OnMesh, Action.OnMap -> {
+            is Action.Init, Action.Home, Action.Mesh, Action.Map -> {
                 if (appViewState.responseViewState.isLoading == false
                         && appViewState.responseViewState.model == null) {
                     middleware.loadData()

@@ -10,12 +10,8 @@ import com.emv.datalayer.models.Items
 import com.emv.kotlinmultiplatformmvi.R
 import com.emv.kotlinmultiplatformmvi.databinding.ItemListBinding
 
-class ChannelsListAdapter(val requestManager : RequestManager) : RecyclerView.Adapter<ChannelsViewHolder>() {
+class ItemsListAdapter(val requestManager : RequestManager) : RecyclerView.Adapter<ChannelsViewHolder>() {
     private lateinit var items: MutableList<Items>
-
-    fun updateProgress() {
-        notifyItemRangeChanged(0, itemCount, true)
-    }
 
     fun updateItems(items: List<Items> ?) {
         if (items != null) {
