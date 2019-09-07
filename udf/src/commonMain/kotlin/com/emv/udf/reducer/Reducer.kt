@@ -33,11 +33,10 @@ class Reducer {
 
         private fun dataResult(appViewState: AppViewState, dataResult: DataResult<*>): AppViewState {
             var responseViewState = appViewState.responseViewState
-            when (dataResult) {
-                is DataResult.Loading -> responseViewState = responseViewState.copy(isLoading = true)
-                is DataResult.Success -> responseViewState =
-                    responseViewState.copy(isLoading = false, model = dataResult.data as BaseModel, error = null)
-                is DataResult.Failure -> responseViewState = responseViewState.copy(isLoading = false, error = null)
+            responseViewState = when (dataResult) {
+                is DataResult.Loading -> responseViewState.copy(isLoading = true)
+                is DataResult.Success -> responseViewState.copy(isLoading = false, model = dataResult.data as BaseModel, error = null)
+                is DataResult.Failure -> responseViewState.copy(isLoading = false, error = null)
                 else -> throw IllegalStateException()
             }
             return AppViewState(appViewState.navigationViewState, responseViewState)
