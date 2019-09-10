@@ -7,7 +7,7 @@ class FlickrApiTest {
 
     @Test
     fun testKittens() = runTest {
-        var epg = FlickrApi().fetchFeed()
-        assertNotNull(epg)
+        var feed = FlickrApi().fetchFeed()
+        assertNotNull(feed)
     }
 }

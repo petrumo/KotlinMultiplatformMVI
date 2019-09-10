@@ -28,7 +28,6 @@ import kotlinx.serialization.ImplicitReflectionSerializer
 @ImplicitReflectionSerializer
 class MainActivity : AppCompatActivity() {
     val TAG = MainActivity::class.simpleName
-    val PROGRESS = "PROGRESS"
     private lateinit var viewModel: ResponseViewModel
 
     private lateinit var binding: ActivityMainBinding

@@ -32,6 +32,15 @@ android {
     dataBinding {
         enabled = true
     }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -50,7 +59,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 
     implementation "androidx.recyclerview:recyclerview:$recycler_view"
-    implementation "androidx.recyclerview:recyclerview-selection:$recycler_view"
+    implementation "androidx.recyclerview:recyclerview-selection:$recycler_view_selection"
 
     kapt 'com.android.databinding:compiler:2.3.1'
 
